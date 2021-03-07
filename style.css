@@ -1,0 +1,23 @@
+.container {
+    text-align: center;
+    font-size: 3em;
+    display: grid;
+    justify-items: center;
+}
+
+h1 {
+    font-size: 4em;
+    margin: 0;
+}
+
+p {
+    margin: 0.5em;
+    height: fit-content;
+    width: fit-content;
+}
+
+.btn--draw {
+    padding: 0.25em;
+    border: 1px solid black;
+    border-radius: 22px;
+}
