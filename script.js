@@ -20,7 +20,6 @@ window.onload = () => {
     document.querySelector('.btn--draw').addEventListener('click', () => {
         draw();
     });
-    
 };
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm
@@ -33,11 +32,10 @@ function shuffleArray(array) {
 }
 
 function draw() {
-    let drawnCard = deck[deck.length - 1 ];
+    let drawnCard = deck[deck.length - 1];
     if (deck[0]) hand.push(deck.pop());
     updateDeckSize();
     updateHand(drawnCard);
-
 }
 
 function discard(card) {
@@ -56,5 +54,8 @@ function updateDeckSize() {
 //draws the card as a span element for now the id represents an individual card
 //later card id would indicate a card is unique even when it has the same information
 function updateHand(card) {
-    handDisplay.insertAdjacentHTML('beforeend', `<span class='card' id='${card} onClick='discard(${card})'>${card}</span>`)
+    handDisplay.insertAdjacentHTML(
+        'beforeend',
+        `<span class="card" id="${card}" onClick="discard('${card}')">${card}</span>`
+    );
 }
