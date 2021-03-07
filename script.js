@@ -23,13 +23,11 @@ window.onload = () => {
 };
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm
-https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
+https://stackoverflow.com/a/12646864/14890950 */
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        const temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+        [array[i], array[j]] = [array[j], array[i]];
     }
 }
 
