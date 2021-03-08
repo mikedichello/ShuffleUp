@@ -39,12 +39,13 @@ function draw() {
 }
 
 function discard(card) {
-    console.log(card);
+    let chosenCard = document.getElementById(card);
+    chosenCard.remove();
 }
 
 function updateDisplays() {
     deckDisplay.innerHTML = `Deck size: ${deck.length}`;
-    handDisplay.innerHTML = `Hand: ${hand[0] ? hand.join(', ') : 'Empty'}`;
+    handDisplay.innerHTML = `Hand:`;
 }
 
 function updateDeckSize() {
@@ -54,8 +55,10 @@ function updateDeckSize() {
 //draws the card as a span element for now the id represents an individual card
 //later card id would indicate a card is unique even when it has the same information
 function updateHand(card) {
-    handDisplay.insertAdjacentHTML(
-        'beforeend',
-        `<span class="card" id="${card}" onClick="discard('${card}')">${card}</span>`
-    );
+    if(card) {
+        handDisplay.insertAdjacentHTML(
+            'beforeend',
+            `<span class="card" id="${card}" onClick="discard('${card}')">${card}</span>`
+        );
+    }
 }
