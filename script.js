@@ -13,6 +13,7 @@ const deck = [
 const hand = [];
 const deckDisplay = document.querySelector('.deck');
 const handDisplay = document.querySelector('.hand');
+const discardDisply = document.querySelector('.discard');
 
 window.onload = () => {
     shuffleArray(deck);
@@ -40,12 +41,15 @@ function draw() {
 
 function discard(card) {
     let chosenCard = document.getElementById(card);
+    discardDisply.insertAdjacentHTML(
+        'beforeend',
+        `<span class="card" id="${card}">${card}</span>`
+    );
     chosenCard.remove();
 }
 
 function updateDisplays() {
     deckDisplay.innerHTML = `Deck size: ${deck.length}`;
-    handDisplay.innerHTML = `Hand:`;
 }
 
 function updateDeckSize() {
