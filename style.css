@@ -16,7 +16,7 @@ p {
     width: fit-content;
 }
 
-.btn--draw {
+.btn {
     padding: 0.25em;
     border: 1px solid black;
     border-radius: 22px;
