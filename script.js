@@ -11,6 +11,7 @@ const deck = [
     'Card10',
 ];
 const hand = [];
+const discardPile = [];
 const deckDisplay = document.querySelector('.deck');
 const handDisplay = document.querySelector('.hand');
 const discardDisply = document.querySelector('.discard');
@@ -45,6 +46,11 @@ function discard(card) {
         'beforeend',
         `<span class="card" id="${card}">${card}</span>`
     );
+    let index = hand.indexOf(card);
+    const discardedCard = hand.splice(index, 1);
+    discardPile.push(discardedCard);
+    console.log('hand: ' + hand);
+    console.log('discard: ' + discardPile);
     chosenCard.remove();
 }
 
