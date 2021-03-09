@@ -14,7 +14,7 @@ const hand = [];
 const discardPile = [];
 const deckDisplay = document.querySelector('.deck');
 const handDisplay = document.querySelector('.hand');
-const discardDisply = document.querySelector('.discard');
+const discardDisplay = document.querySelector('.discard');
 
 window.onload = () => {
     shuffleArray(deck);
@@ -42,13 +42,13 @@ function draw() {
 
 function discard(card) {
     let chosenCard = document.getElementById(card);
-    discardDisply.insertAdjacentHTML(
+    discardDisplay.insertAdjacentHTML(
         'beforeend',
         `<span class="card" id="${card}">${card}</span>`
     );
     let index = hand.indexOf(card);
     const discardedCard = hand.splice(index, 1);
-    discardPile.push(discardedCard);
+    discardPile.push(...discardedCard);
     console.log('hand: ' + hand);
     console.log('discard: ' + discardPile);
     chosenCard.remove();
@@ -65,7 +65,7 @@ function updateDeckSize() {
 //draws the card as a span element for now the id represents an individual card
 //later card id would indicate a card is unique even when it has the same information
 function updateHand(card) {
-    if(card) {
+    if (card) {
         handDisplay.insertAdjacentHTML(
             'beforeend',
             `<span class="card" id="${card}" onClick="discard('${card}')">${card}</span>`
