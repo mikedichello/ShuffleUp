@@ -1,13 +1,26 @@
-.container {
-    text-align: center;
+body {
     font-size: 3em;
-    display: grid;
-    justify-items: center;
+    text-align: center;
 }
 
 h1 {
     font-size: 4em;
     margin: 0;
+}
+
+form {
+    margin: 0.25em;
+}
+
+form textarea {
+    width: 200px;
+    height: 250px;
+}
+
+#play-area {
+    text-align: inherit;
+    display: none;
+    justify-items: center;
 }
 
 p {
@@ -24,4 +37,5 @@ p {
 
 span {
     margin: 0 0.15em;
+    border: 1px solid black;
 }

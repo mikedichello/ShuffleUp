@@ -4,14 +4,19 @@
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
-        <section class="container">
-            <h1>Test</h1>
+        <h1>Test</h1>
+        <form id="form">
+            <label for="decklist-input">Decklist:</label>
+            <textarea id="decklist-input" name="decklist-input" autofocus="autofocus"></textarea>
+            <input class="btn btn--submit" id="submit" type="submit" value="Submit"></input>
+        </form>
+        <div id="play-area">
             <p class="deck">Deck size:</p>
             <p class="btn btn--draw">Draw!</p>
             <p class="hand">Hand:</p>
             <p class="discard">Discard:</p>
             <p class="btn btn--reset">Reset</p>
-        </section>
+        </div>
         <script src="script.js"></script>
     </body>
 </html>

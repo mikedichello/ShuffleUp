@@ -46,24 +46,32 @@ class Deck {
 }
 
 // ------------Initiation----------
+let deck;
 
-const decklist = [
-    [17, 'Land'],
-    [5, 'Spell'],
-    [18, 'Creature'],
-];
-const deck = new Deck(decklist);
-const hand = [];
-const discardPile = [];
+form.onsubmit = e => {
+    e.preventDefault();
 
-const deckDisplay = document.querySelector('.deck');
-const handDisplay = document.querySelector('.hand');
-const discardPileDisplay = document.querySelector('.discard');
+    // Parse input into decklist
+    const decklistInput = document.getElementById('decklist-input').value;
+    const decklistByLine = decklistInput.split('\n');
+    const decklist = [];
+    for (const line of decklistByLine)
+        if (line) {
+            const splitline = line.split(' ');
+            decklist.push([splitline.shift(), splitline.join(' ')]);
+        }
 
-window.onload = () => {
+    // Create deck object & get it ready
+    deck = new Deck(decklist);
     deck.createStack();
     deck.shuffle();
+
+    // Reverse visibility of form & play area, update
+    document.getElementById('form').style.display = 'none';
     updateDisplays();
+    document.getElementById('play-area').style.display = 'grid';
+
+    // Set button functions for play area
     document.querySelector('.btn--draw').addEventListener('click', () => {
         deck.draw();
     });
@@ -71,6 +79,13 @@ window.onload = () => {
         reset();
     });
 };
+
+const hand = [];
+const discardPile = [];
+
+const deckDisplay = document.querySelector('.deck');
+const handDisplay = document.querySelector('.hand');
+const discardPileDisplay = document.querySelector('.discard');
 
 // ------------Controller----------
 
