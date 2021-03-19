@@ -1,3 +1,7 @@
+import { hand, discardPile } from '../script.js';
+
+import { updateDeckSize, updateHand, updateDiscardPile } from './view.js';
+
 class Card {
     constructor(name, id) {
         this.name = name;
@@ -14,7 +18,7 @@ class Card {
     }
 }
 
-class Deck {
+export default class Deck {
     constructor(decklist) {
         this.decklist = decklist;
         this.stack = [];
@@ -22,10 +26,8 @@ class Deck {
 
     createStack() {
         this.decklist.forEach(([num, cardName]) => {
-            console.log(num, cardName);
             for (let i = 1; i <= num; i++) {
                 const newCard = new Card(cardName, i);
-                console.log(newCard);
                 this.stack.push(newCard);
             }
         });
@@ -38,20 +40,10 @@ class Deck {
             [this.stack[i], this.stack[j]] = [this.stack[j], this.stack[i]];
         }
     }
+
+    draw() {
+        if (this.stack[0]) hand.push(this.stack.pop());
+        updateDeckSize();
+        updateHand();
+    }
 }
-
-// TEST:
-// let decklist = [
-//   [4, "Bolt"],
-//   [4, "path"],
-//   [3, "bob"],
-//   [2, "steve"],
-//   [16, "land"]
-// ];
-// const deck = new Deck(decklist);
-
-// deck.createStack();
-// console.log(deck);
-
-// deck.shuffle();
-// console.log(deck.stack);
