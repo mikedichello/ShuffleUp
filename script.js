@@ -67,7 +67,7 @@ form.onsubmit = e => {
     deck.shuffle();
 
     // Reverse visibility of form & play area, update
-    document.getElementById('form').style.display = 'none';
+    document.getElementById('form-container').style.display = 'none';
     updateDisplays();
     document.getElementById('play-area').style.display = 'grid';
 

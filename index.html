@@ -4,12 +4,16 @@
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
-        <h1>Test</h1>
-        <form id="form">
-            <label for="decklist-input">Decklist:</label>
-            <textarea id="decklist-input" name="decklist-input" autofocus="autofocus"></textarea>
-            <input class="btn btn--submit" id="submit" type="submit" value="Submit"></input>
-        </form>
+        <h1>Shuffle<span>UP</span></h1>
+        <div id="form-container">
+            <h2>Create Decklist:</h2>
+            <p>Insert one card per line</p>
+            <p class="example">EX: 4 Lightning Bolt</p>
+            <form id="form">
+                <textarea id="decklist-input" name="decklist-input" autofocus="autofocus"></textarea>
+                <input class="btn btn--submit" id="submit" type="submit" value="Submit"></input>
+            </form>
+        </div>
         <div id="play-area">
             <p class="deck">Deck size:</p>
             <p class="btn btn--draw">Draw!</p>
